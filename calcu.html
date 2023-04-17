@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <title>Fisica</title>
+</head>
+<body>
+
+<nav class="navbar" style="background-color: black;">
+    <!-- Navbar content -->
+  </nav>
+  <div class="jumbotron">
+  <h1 class="display-4" style="color: red;">Fisica 1 </h1>
+  <p class="lead">Desarrollara competencias genericas y disciplinares al abordar aspectos relacionados con los 
+    conceptos fundamentales: Movimiento,Fuerza,Maza e interacciones materia-energia,para reconocer, entender y explicar
+    fenomenos fisicos que se presena en su entorno,pronto soluciones y generar proyectos que son algunos conceptos de la
+    materia. 
+  </p>
+  <form id="formulario">
+  <label for="distancia">Distancia:</label>
+  <input type="text" id="distancia"
+  name="distancia">
+<select id="distanciaUnidad">
+
+
+<option value="metros">Metros</option>
+<option value="pies">pies</option>
+</select>
+<br>
+<label for="Tiempo">Tiempo:</label>
+<input type="text" id="Tiempo"
+name="Tiempo">
+<select id="TiempoUnidad">
+<option value="segundos">segundos</option>
+<option value="horas">Horas</option>
+</select>
+<br>
+<label for="velocidadUnidad">Unidades de velocidad
+</label>
+<select id="velocidadUnidad">
+  <option value="metros_por_segundos">m/s</option>
+  <option value="pies_por_segundos">ft/s</option>
+  <option value="kilometros_por_hora">km/h</option>
+  <option value="millas_por_horas">mph/h</option>
+  </option>
+</select>
+<br>
+<input type="button" value="Calcular" onclick="Calcular()">
+</form>
+<p style="color:skyblue">velocidad: <span id="velocidad"></span></p>
+<p style="color: rgb(255, 0, 128);">Aceleracion: <span id="Aceleracion"></span></p>
+<p style="color: rgba(17, 0, 255, 0.567);">Rapidez: <span id="Rapidez"></span></p>
+</div>
+<script>
+  function Calcular(){
+  //obtener los valores del formulario
+    const distancia = parseFloat(document.getElementById('distancia'),value);
+    const Tiempo = parseFloat(document.getElementById('Tiempo'),value);
+    const distanciaUnidad = parseFloat(document.getElementById('distanciaUnidad'),value);
+    const TiempoUnidad = parseFloat(document.getElementById('TiempoUnidad'),value);
+    const velocidadUnidad = parseFloat(document.getElementById('velocidadUnidad'),value);
+  //Convertir unidad a sistema metrico(SI)
+  let distanciaSI = 0;
+  let TiempoSI = 0;
+  if(distanciaUnidad=== 'metros'){
+    distanciaSI = distancia;
+   }
+   else if (distanciaUnidad ==='pies'){
+    distanciaSI = distancia /3.281;
+   }
+   if(TiempoUnidad=== 'segundos'){
+    TiempoSI = Tiempo * 3600;
+   }  
+   else if(TiempoUnidad === 'horas'){ 
+    TiempoSI = Tiempo;
+     }
+
+     //Calcular la distancia, la aceleracion y rapidez
+     let velocidad = 0;
+     let aceleracion = 0;
+     let rapidez = 0;
+     if(velocidadUnidad === 'metros_por_segundos'){
+        velocidad = distanciaSI / TiempoSI;
+        rapidez = velocidad; //esta no es la formula
+        aceleracion = velocidad / TiempoSI;
+</script>
+</body>
+</html>
